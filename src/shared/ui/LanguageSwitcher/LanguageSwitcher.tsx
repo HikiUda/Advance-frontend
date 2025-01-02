@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
+import { useTranslation } from 'react-i18next';
 import cls from './LanguageSwitcher.module.scss';
 import { Button } from '../Button/Button';
-import { useTranslation } from 'react-i18next';
 
 interface LanguageSwitcherProps {
     className?: string;

@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import cls from './Navbar.module.scss';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
@@ -16,11 +16,11 @@ export const Navbar: FC<NavbarProps> = (props) => {
             <div className={cls.links}>
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
-                    to={'/about'}
+                    to="/about"
                 >
                     about
                 </AppLink>
-                <AppLink to={'/'}>main</AppLink>
+                <AppLink to="/">main</AppLink>
             </div>
         </div>
     );

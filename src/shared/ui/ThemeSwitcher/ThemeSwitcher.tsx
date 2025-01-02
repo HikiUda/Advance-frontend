@@ -2,11 +2,10 @@ import { FC } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import cls from './ThemeSwitcher.module.scss';
-import { useTheme } from 'shared/lib/theme';
+import { useTheme, Theme } from 'shared/lib/theme';
 import DarkIcon from 'shared/assets/icon/theme-dark.svg';
 import LightIcon from 'shared/assets/icon/theme-light.svg';
-import { Theme } from 'shared/lib/theme';
+import cls from './ThemeSwitcher.module.scss';
 import { Button, ThemeButton } from '../Button/Button';
 
 interface ThemeSwitcherProps {

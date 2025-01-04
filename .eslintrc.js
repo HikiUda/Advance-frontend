@@ -38,7 +38,8 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'implicit-arrow-linebreak': 'warn',
-        'max-len': ['error', { ignoreComments: true }],
+        'object-curly-newline': 'off',
+        'max-len': ['error', { ignoreComments: true, code: 100 }],
         'i18next/no-literal-string': [
             'error',
             { markupOnly: true, onlyAttribute: [''] },

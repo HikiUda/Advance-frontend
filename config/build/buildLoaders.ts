@@ -17,7 +17,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    const cssLoader = BuildCssLoader(options.isDev)
+    const cssLoader = BuildCssLoader(options.isDev);
 
     const babelLoader = {
         test: /(js|jsx|tsx)/,

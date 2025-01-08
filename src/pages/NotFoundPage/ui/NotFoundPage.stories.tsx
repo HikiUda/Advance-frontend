@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import  {NotFoundPage}  from './NotFoundPage';
+import { NotFoundPage } from './NotFoundPage';
 
 const meta: Meta<typeof NotFoundPage> = {
-  title: 'page/NotFoundPage',
-  component: NotFoundPage,
+    title: 'page/NotFoundPage',
+    component: NotFoundPage,
 
-  tags: ['autodocs'],
+    tags: ['autodocs'],
 
-} ;
+};
 
 export default meta;
 type Story = StoryObj<typeof NotFoundPage>;
 
 export const Primary: Story = {
- 
+
 };

@@ -33,8 +33,8 @@ export const Sidebar: FC<SidebarProps> = (props) => {
                 {t('переключить')}
             </button>
             <div className={cls.switcher}>
-                <ThemeSwitcher className={cls.theme} />
-                <LanguageSwitcher className={cls.lang} />
+                <ThemeSwitcher />
+                <LanguageSwitcher />
             </div>
         </div>
     );

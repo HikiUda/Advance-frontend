@@ -33,6 +33,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'implicit-arrow-linebreak': 'warn',
         'object-curly-newline': 'off',
+        'wrap-iife': 'warn',
         'max-len': ['error', { ignoreComments: true, code: 100 }],
         'i18next/no-literal-string': [
             'error',

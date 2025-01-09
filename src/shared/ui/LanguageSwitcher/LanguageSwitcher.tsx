@@ -22,7 +22,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
             onClick={toggleLan}
             className={classNames('', {}, [className])}
         >
-            {i18n.language || 'ru'}
+            {i18n.language?.toUpperCase() || 'RU'}
         </Button>
     );
 };

@@ -13,7 +13,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint'],
+    plugins: ['react', '@typescript-eslint', 'react-hooks'],
 
     rules: {
         'react/jsx-indent': [2, 4],
@@ -34,6 +34,10 @@ module.exports = {
         'implicit-arrow-linebreak': 'warn',
         'object-curly-newline': 'off',
         'wrap-iife': 'warn',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
         'max-len': ['error', { ignoreComments: true, code: 100 }],
         'i18next/no-literal-string': [
             'error',
@@ -46,9 +50,10 @@ module.exports = {
 
     overrides: [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
+                'max-len': 'off',
             },
         },
     ],

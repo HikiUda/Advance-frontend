@@ -1,4 +1,3 @@
-import { BugButton } from 'app/providers/ErrorBoundary';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 

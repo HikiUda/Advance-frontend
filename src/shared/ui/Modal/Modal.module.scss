@@ -23,7 +23,8 @@
     border-radius: 12px;
 
     // background: var(--bg-color);
-    background: #0c0c75;
+    background: var(--bg-color);
+    color: var(--secondary-color);
     transition: 0.3s transform;
     transform: scale(0.5);
     max-width: 60%;

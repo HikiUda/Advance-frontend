@@ -9,6 +9,7 @@ interface ThemeProviderProps {
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
     const [theme, setTheme] = useState(initialTheme || defaultTheme);
+    document.body.className = theme;
 
     const defaultProps = useMemo(
         () => ({

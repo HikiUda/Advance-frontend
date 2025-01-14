@@ -1,8 +1,11 @@
+import { DeepPartial } from '@reduxjs/toolkit';
 import { Decorator } from '@storybook/react';
-import { StoreProvider } from 'app/providers/StoreProvider';
+import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 
-export const StoreProviderDecorator: Decorator = (Story) => (
-    <StoreProvider>
-        <Story />
-    </StoreProvider>
-);
+export function StoreProviderDecorator(state: DeepPartial<StateSchema>): Decorator {
+    return (Story) => (
+        <StoreProvider initialState={state}>
+            <Story />
+        </StoreProvider>
+    );
+}

@@ -89,3 +89,10 @@ export const OutlineSizeXL: Story = {
         children: 'Text',
     },
 };
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+        theme: ThemeButton.OUTLINE,
+        children: 'Text',
+    },
+};

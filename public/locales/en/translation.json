@@ -5,5 +5,7 @@
     "Страница не найдена": "Page is not found",
     "Введите пароль": "Enter password",
     "Введите email": "Enter email",
-    "Войти": "Login"
+    "Форма авторизации": "Auth Form",
+    "Войти": "Login",
+    "Выйти": "Logout"
 }

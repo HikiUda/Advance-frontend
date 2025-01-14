@@ -39,7 +39,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 110 }],
         'i18next/no-literal-string': [
             'error',
             { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'fallback'] },

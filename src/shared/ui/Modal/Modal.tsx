@@ -1,13 +1,4 @@
-import {
-    FC,
-    ReactNode,
-    MouseEvent,
-    useState,
-    useRef,
-    useEffect,
-    KeyboardEvent,
-    useCallback,
-} from 'react';
+import { FC, ReactNode, MouseEvent, useState, useRef, useEffect, KeyboardEvent, useCallback } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -76,11 +67,9 @@ export const Modal: FC<ModalProps> = (props) => {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
-
     if (lazy && !isMounted) {
         return null;
     }
-
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>

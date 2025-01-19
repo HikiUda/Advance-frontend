@@ -15,5 +15,5 @@ type Story = StoryObj<typeof Navbar>;
 
 export const Primary: Story = {};
 export const AuthUser: Story = {
-    decorators: [StoreProviderDecorator({ user: { authData: { username: 'admin', id: '1' } } })],
+    decorators: [StoreProviderDecorator({ user: { authData: { username: 'admin', id: '1' } } }, {})],
 };

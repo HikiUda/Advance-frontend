@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -10,7 +10,7 @@ interface LanguageSwitcherProps {
     className?: string;
 }
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
+export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
     const { className } = props;
     const { i18n } = useTranslation();
 
@@ -25,4 +25,4 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
             {i18n.language?.toUpperCase() || 'RU'}
         </Button>
     );
-};
+});

@@ -15,6 +15,7 @@ type Story = StoryObj<typeof Modal>;
 export const Primary: Story = {
     args: {
         isOpen: true,
+        isTesting: true,
         children: `Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Inventore repudianda beatae doloribus magnam fugit
                     fuga dicta harum deleniti! Soluta quaerat

@@ -13,23 +13,15 @@ interface InputProps extends HTMLInputProps {
 }
 
 export const Input = memo((props: InputProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        autoFocus,
-        type = 'text',
-        placeholder,
-        ...otherProps
-    } = props;
-    const ref = useRef<HTMLInputElement>();
+    const { className, value, onChange, autoFocus, type = 'text', placeholder, ...otherProps } = props;
+    const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
 
     useEffect(() => {
         if (autoFocus) {
             setIsFocused(true);
-            ref.current.focus();
+            ref.current?.focus();
         }
     }, [autoFocus]);
 

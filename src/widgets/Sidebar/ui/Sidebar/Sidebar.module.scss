@@ -15,27 +15,11 @@
     gap: 10px;
 }
 
-.link {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-
-    span {
-        transition: 0.4s opacity;
-    }
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
     .switcher {
         flex-direction: column;
-    }
-
-    .link span {
-        opacity: 0;
-        width: 0;
     }
 }
 
@@ -50,8 +34,4 @@
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-}
-
-.icon {
-    fill: var(--inverted-primary-color);
 }

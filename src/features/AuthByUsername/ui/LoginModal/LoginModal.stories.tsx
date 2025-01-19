@@ -15,6 +15,7 @@ type Story = StoryObj<typeof LoginModal>;
 
 export const Primary: Story = {
     args: {
+        isTesting: true,
         isOpen: true,
     },
     decorators: [StoreProviderDecorator({ loginForm: { username: 'admin', password: '123' } })],

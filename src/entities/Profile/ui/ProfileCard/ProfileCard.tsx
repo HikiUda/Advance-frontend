@@ -1,46 +1,131 @@
 import { FC } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
-import { useSelector } from 'react-redux';
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
+import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
     className?: string;
+    data?: Profile;
+    isLoading?: boolean;
+    error?: string | undefined;
+    readonly?: boolean;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeLastname?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (currency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
-    const { className } = props;
+    const {
+        className,
+        data,
+        isLoading,
+        error,
+        readonly,
+        onChangeFirstname,
+        onChangeLastname,
+        onChangeAge,
+        onChangeCity,
+        onChangeUsername,
+        onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry,
+    } = props;
     const { t } = useTranslation('profile');
-    const data = useSelector(getProfileData);
-    const error = useSelector(getProfileError);
-    const isLoading = useSelector(getProfileIsLoading);
+
+    const mods: Mods = {
+        [cls.editing]: !readonly,
+    };
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.ProfileCard, mods, [className, cls.loading])}>
+                <Loader />
+            </div>
+        );
+    }
+    if (error) {
+        return (
+            <div className={classNames(cls.ProfileCard, mods, [className, cls.error])}>
+                <Text
+                    theme={TextTheme.ERROR}
+                    title={error}
+                    text={error}
+                    align="center"
+                />
+            </div>
+        );
+    }
+
     return (
-        <div className={classNames(cls.ProfileCard, {}, [className])}>
-            <div className={cls.header}>
-                <Text title={t('Профиль')} />
-                <Button
-                    className={cls.editBtn}
-                    theme={ThemeButton.OUTLINE}
-                >
-                    {t('Редактировать')}
-                </Button>
+        <div className={classNames(cls.ProfileCard, mods, [className])}>
+            <div className={cls.avatarWrapper}>
+                {data?.avatar && (
+                    <Avatar
+                        src={data?.avatar}
+                        size={150}
+                    />
+                )}
             </div>
             <div className={cls.data}>
                 <Input
                     value={data?.first}
                     placeholder={t('Ваше имя')}
+                    readonly={readonly}
+                    onChange={onChangeFirstname}
                 />
                 <Input
                     value={data?.lastname}
                     placeholder={t('Ваше фамилия')}
+                    readonly={readonly}
+                    onChange={onChangeLastname}
+                />
+                <Input
+                    value={data?.age}
+                    placeholder={t('Сколько вам лет?')}
+                    readonly={readonly}
+                    onChange={onChangeAge}
+                />
+                <Input
+                    value={data?.city}
+                    placeholder={t('Ваш город')}
+                    readonly={readonly}
+                    onChange={onChangeCity}
+                />
+                <Input
+                    value={data?.username}
+                    placeholder={t('Имя пользователя')}
+                    readonly={readonly}
+                    onChange={onChangeUsername}
+                />
+                <Input
+                    value={data?.avatar}
+                    placeholder={t('Ссылка на аватар')}
+                    readonly={readonly}
+                    onChange={onChangeAvatar}
+                />
+                <CurrencySelect
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    value={data?.country}
+                    onChange={onChangeCountry}
+                    readonly={readonly}
                 />
             </div>
         </div>

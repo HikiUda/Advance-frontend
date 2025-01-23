@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
 import { ProfileCard } from './ProfileCard';
 
 const meta: Meta<typeof ProfileCard> = {
@@ -12,4 +16,27 @@ const meta: Meta<typeof ProfileCard> = {
 export default meta;
 type Story = StoryObj<typeof ProfileCard>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+    args: {
+        data: {
+            first: 'Тимур',
+            lastname: 'Ульби',
+            age: 33,
+            currency: Currency.USD,
+            country: Country.Kazahstan,
+            city: 'Moscowff',
+            username: 'admin',
+            avatar: AvatarImg,
+        },
+    },
+};
+export const WithError: Story = {
+    args: {
+        error: ValidateProfileError.SERVER_ERROR,
+    },
+};
+export const Loading: Story = {
+    args: {
+        isLoading: true,
+    },
+};

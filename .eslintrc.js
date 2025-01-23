@@ -4,7 +4,8 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
+    // When --fix delete 'prettier/react'
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier/react'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -44,12 +45,13 @@ module.exports = {
         'max-len': ['error', { ignoreComments: true, code: 115 }],
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, ignoreAttribute: ['data-testid', 'name', 'to', 'fallback'] },
+            { markupOnly: true, ignoreAttribute: ['align', 'data-testid', 'name', 'to', 'fallback'] },
         ],
     },
     globals: {
         __IS_DEV__: true,
         __API__: true,
+        __PROJECT__: true,
     },
 
     overrides: [

@@ -2,5 +2,16 @@
     "Профиль": "Profile",
     "Редактировать": "Change profile",
     "Ваше имя": "Your firstname",
-    "Ваше фамилия": "Your lastname"
+    "Ваше фамилия": "Your lastname",
+    "Сколько вам лет?": "Your age",
+    "Ваш город": "Your city",
+    "Имя пользователя": "Username",
+    "Ссылка на аватар": "To avatar link",
+    "Имя и фамилия обязательны": "Please enter first and lastname",
+    "Некоректный возраст": "The age is incorrect",
+    "Не указан город": "City is not",
+    "ИДанные не указанны": "Data is incorret",
+    "Серверная ошибка": "Server Error",
+    "Отменить": "Cancel",
+    "Подтвердить": "Confirm"
 }

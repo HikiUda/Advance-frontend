@@ -68,6 +68,12 @@ export const SquareSizeXL: Story = {
         children: '>',
     },
 };
+export const OutlineRed: Story = {
+    args: {
+        theme: ThemeButton.OUTLINE_RED,
+        children: 'Text',
+    },
+};
 export const OutlineSizeM: Story = {
     args: {
         size: ButtonSize.M,
@@ -75,6 +81,7 @@ export const OutlineSizeM: Story = {
         children: 'Text',
     },
 };
+
 export const OutlineSizeL: Story = {
     args: {
         size: ButtonSize.L,

@@ -8,6 +8,9 @@
     "Форма авторизации": "Auth Form",
     "Укажите валюту": "Select currency",
     "Укажите страну": "Select country",
+    "Комментарии отсутствуют": "There are no comments for this article",
+    "Добавить комментарий": "Add Comment",
+    "Отправить": "Send",
     "Войти": "Login",
     "Выйти": "Logout"
 }

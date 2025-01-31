@@ -4,8 +4,8 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    // When --fix delete 'prettier/react'
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier/react'],
+    // When lint or commit, delete 'prettier/react'
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -19,7 +19,7 @@ module.exports = {
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
+        indent: [2, 4, { SwitchCase: 1 }],
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -40,12 +40,17 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
+        'react/no-array-index-key': 'off',
         'no-unused-vars': 'off',
+        'operator-linebreak': 'warn',
         'no-undef': 'off',
-        'max-len': ['error', { ignoreComments: true, code: 115 }],
+        'max-len': ['error', { ignoreComments: true, code: 150 }],
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, ignoreAttribute: ['align', 'data-testid', 'name', 'to', 'fallback'] },
+            {
+                markupOnly: true,
+                ignoreAttribute: ['path', 'align', 'size', 'data-testid', 'name', 'to', 'fallback'],
+            },
         ],
     },
     globals: {

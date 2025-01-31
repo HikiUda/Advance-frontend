@@ -1,0 +1,13 @@
+.Code {
+    background: var(--code-bg);
+    border: 1px solid var(--primary-color);
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+.codeBtn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}

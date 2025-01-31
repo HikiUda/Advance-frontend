@@ -9,6 +9,7 @@ export enum TextTheme {
     ERROR = 'error',
 }
 export type TextAlign = 'right' | 'left' | 'center';
+export type TextSize = 'size_m' | 'size_l';
 
 interface TextProps {
     className?: string;
@@ -16,12 +17,13 @@ interface TextProps {
     text?: string;
     theme?: TextTheme;
     align?: TextAlign;
+    size?: TextSize;
 }
 
 export const Text: FC<TextProps> = (props) => {
-    const { className, title, text, theme = TextTheme.PRIMARY, align = 'left' } = props;
+    const { className, title, text, theme = TextTheme.PRIMARY, size = 'size_m', align = 'left' } = props;
     return (
-        <div className={classNames('', {}, [className, cls[theme], cls[align]])}>
+        <div className={classNames('', {}, [className, cls[theme], cls[align], cls[size]])}>
             {title && <p className={cls.title}>{title}</p>}
             {text && <p className={cls.text}>{text}</p>}
         </div>

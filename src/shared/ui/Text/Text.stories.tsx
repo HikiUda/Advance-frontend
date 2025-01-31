@@ -35,3 +35,19 @@ export const ErrorTitleAndText: Story = {
         theme: TextTheme.ERROR,
     },
 };
+export const SizeMTitleAndText: Story = {
+    args: {
+        title: 'Title',
+        text: 'text text text',
+        theme: TextTheme.ERROR,
+        size: 'size_m',
+    },
+};
+export const SizeLTitleAndText: Story = {
+    args: {
+        title: 'Title',
+        text: 'text text text',
+        theme: TextTheme.ERROR,
+        size: 'size_l',
+    },
+};

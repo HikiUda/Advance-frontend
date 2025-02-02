@@ -25,7 +25,7 @@ export const Sidebar = memo((props: SidebarProps) => {
     };
 
     return (
-        <div
+        <menu
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
@@ -53,6 +53,6 @@ export const Sidebar = memo((props: SidebarProps) => {
                 <ThemeSwitcher />
                 <LanguageSwitcher />
             </div>
-        </div>
+        </menu>
     );
 });

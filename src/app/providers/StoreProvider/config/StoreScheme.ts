@@ -8,10 +8,12 @@ import { AddCommentFormScheme } from 'features/addCommentForm';
 import { LoginScheme } from 'features/AuthByUsername';
 import { ArticleDetailsCommentsScheme } from 'pages/ArticleDetailssPage';
 import { ArticlePageScheme } from 'pages/ArticlePage';
+import { ScrollSaveScheme } from 'widgets/ScrollSave';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserScheme;
+    scrollSave: ScrollSaveScheme;
     loginForm?: LoginScheme;
     profile?: ProfileScheme;
     articleDetails?: ArticleDetailsScheme;

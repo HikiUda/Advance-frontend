@@ -33,7 +33,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
 
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <div className={cls.links}>
                     <Button
                         theme={ThemeButton.CLEAR_INVERTED}
@@ -42,12 +42,12 @@ export const Navbar: FC<NavbarProps> = (props) => {
                         {t('Выйти')}
                     </Button>
                 </div>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 <Button
                     theme={ThemeButton.CLEAR_INVERTED}
@@ -62,6 +62,6 @@ export const Navbar: FC<NavbarProps> = (props) => {
                     />
                 )}
             </div>
-        </div>
+        </header>
     );
 };

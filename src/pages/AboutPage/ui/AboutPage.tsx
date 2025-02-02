@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'widgets/Page/Page';
 
 // import cls from './AboutPage.module.scss';
 
@@ -10,7 +11,7 @@ interface AboutPageProps {
 const AboutPage: FC<AboutPageProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation('about');
-    return <div className="">{t('О нас')}</div>;
+    return <Page className="">{t('О нас')}</Page>;
 };
 
 export default AboutPage;

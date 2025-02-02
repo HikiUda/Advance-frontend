@@ -2,13 +2,15 @@ import { Article, ArticleView } from 'entities/Article';
 
 import { ArticlePageScheme } from '../types/article';
 import { articlesPageActions, articlesPageReducer } from './articlePageSlice';
-import { fetchArticlesList } from '../services/fetchArticlesList';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
 describe('articlePageSlice', () => {
     it('init view', () => {
-        const state: DeepPartial<ArticlePageScheme> = { view: ArticleView.BIG };
+        const state: DeepPartial<ArticlePageScheme> = { _inited: false, view: ArticleView.BIG, limit: 1 };
         expect(articlesPageReducer(state as ArticlePageScheme, articlesPageActions.initState())).toEqual({
             view: ArticleView.SMALL,
+            limit: 9,
+            _inited: true,
         });
     });
     it('setView', () => {
@@ -46,15 +48,21 @@ describe('articlePageSlice', () => {
                 { id: 2, type: 'CODE', code: '' },
             ],
         } as Article;
-        const state: DeepPartial<ArticlePageScheme> = { ids: [], entities: {}, isLoading: true };
+        const state: DeepPartial<ArticlePageScheme> = {
+            ids: [],
+            entities: {},
+            isLoading: true,
+            hasMore: true,
+        };
         expect(
-            articlesPageReducer(state as ArticlePageScheme, fetchArticlesList.fulfilled([article], '')),
+            articlesPageReducer(state as ArticlePageScheme, fetchArticlesList.fulfilled([article], '', {})),
         ).toEqual({
             ids: ['1'],
             entities: {
                 1: article,
             },
             isLoading: false,
+            hasMore: true,
         });
     });
 });

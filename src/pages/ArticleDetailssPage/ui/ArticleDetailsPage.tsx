@@ -15,6 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'widgets/Page/Page';
 import cls from './ArticleDetailsPage.module.scss';
 import {
     articleDetailsCommentsReducer,
@@ -57,7 +58,7 @@ const ArticleDetailsPage: FC<ArticleDetailssPageProps> = (props) => {
             reducers={reducers}
             removeAfterUnmount
         >
-            <div className={classNames(cls.ArticleDetailssPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailssPage, {}, [className])}>
                 <Button
                     theme={ThemeButton.OUTLINE}
                     onClick={onBackToList}
@@ -74,7 +75,7 @@ const ArticleDetailsPage: FC<ArticleDetailssPageProps> = (props) => {
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuelLoader>
     );
 };

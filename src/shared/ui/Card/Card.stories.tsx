@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Card } from './Card';
+import { Card, CardTheme } from './Card';
 import { Text } from '../Text/Text';
 
 const meta: Meta<typeof Card> = {
@@ -21,5 +21,11 @@ export const Primary: Story = {
                 text="text"
             />
         ),
+    },
+};
+export const Outlined: Story = {
+    args: {
+        theme: CardTheme.OUTLINED,
+        children: 'text',
     },
 };

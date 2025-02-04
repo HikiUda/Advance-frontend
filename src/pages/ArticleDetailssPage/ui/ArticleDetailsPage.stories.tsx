@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
 
-import { Article, ArticleBlockType } from 'entities/Article/model/types/article';
+import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreProviderDecorator } from 'shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { EntityId } from '@reduxjs/toolkit';
@@ -25,7 +25,7 @@ const article: Article = {
         username: 'wendwe',
         avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     },
-    type: ['IT'],
+    type: [ArticleType.IT],
     blocks: [
         {
             id: 1,

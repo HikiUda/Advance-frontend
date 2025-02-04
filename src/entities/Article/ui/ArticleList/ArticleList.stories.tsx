@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
 
-import { Article, ArticleBlockType, ArticleView } from '../../model/types/article';
+import { Article, ArticleBlockType, ArticleType, ArticleView } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 
 const meta: Meta<typeof ArticleList> = {
@@ -19,7 +19,7 @@ const article: Article = {
     views: 1022,
     user: { id: '1', username: 'wendsew', avatar: AvatarImg },
     createdAt: '26.02.2022',
-    type: ['IT'],
+    type: [ArticleType.IT],
     blocks: [
         {
             id: 1,

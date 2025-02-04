@@ -52,6 +52,7 @@ describe('articlePageSlice', () => {
             ids: [],
             entities: {},
             isLoading: true,
+            limit: 4,
             hasMore: true,
         };
         expect(
@@ -61,8 +62,9 @@ describe('articlePageSlice', () => {
             entities: {
                 1: article,
             },
+            limit: 4,
             isLoading: false,
-            hasMore: true,
+            hasMore: false,
         });
     });
 });

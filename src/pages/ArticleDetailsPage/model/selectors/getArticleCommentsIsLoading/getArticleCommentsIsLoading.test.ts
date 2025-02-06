@@ -3,7 +3,7 @@ import { getArticleCommentsIsLoading } from './getArticleCommentsIsLoading';
 
 describe('getArticleCommentsIsLoading', () => {
     it('get ', () => {
-        const state: DeepPartial<StateSchema> = { articleDetailsComments: { isLoading: true } };
+        const state: DeepPartial<StateSchema> = { articleDetailsPage: { comments: { isLoading: true } } };
         expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(true);
     });
     it('get not ', () => {

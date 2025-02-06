@@ -8,6 +8,9 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -34,6 +37,17 @@ export const Navbar: FC<NavbarProps> = (props) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text
+                    title={t('wendsew App')}
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName}
+                />
+                <AppLink
+                    to={`${RoutePath.article_details}new`}
+                    className={cls.createBtn}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <div className={cls.links}>
                     <Button
                         theme={ThemeButton.CLEAR_INVERTED}

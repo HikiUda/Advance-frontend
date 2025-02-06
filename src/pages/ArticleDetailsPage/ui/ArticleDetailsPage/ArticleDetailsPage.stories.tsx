@@ -131,7 +131,7 @@ export const Primary: Story = {
     decorators: [
         StoreProviderDecorator({
             articleDetails: { data: article },
-            articleDetailsComments: { ids, entities },
+            articleDetailsPage: { comments: { ids, entities } },
         }),
         RouterDecorator('/path/:id'),
     ],

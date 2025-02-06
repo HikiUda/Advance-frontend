@@ -3,7 +3,7 @@ import { getArticleCommentsError } from './getArticleCommentsError';
 
 describe('getArticleCommentsError', () => {
     it('get ', () => {
-        const state: DeepPartial<StateSchema> = { articleDetailsComments: { error: 'error' } };
+        const state: DeepPartial<StateSchema> = { articleDetailsPage: { comments: { error: 'error' } } };
         expect(getArticleCommentsError(state as StateSchema)).toEqual('error');
     });
     it('get not ', () => {

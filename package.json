@@ -7,7 +7,7 @@
         "start": "npx webpack serve --env port=3000",
         "start:dev:server": "node ./json-server/index.js",
         "start:dev": "concurrently \"npm start\" \"npm run start:dev:server \"",
-        "build:prod": "npx webpack --env mode=production apiUrl=https://production-project-server-8laoylurk-hikiudas-projects.vercel.app",
+        "build:prod": "npx webpack --env mode=production apiUrl=https://production-project-server-112uorek1-hikiudas-projects.vercel.app",
         "build:dev": "npx webpack --env mode=development",
         "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",
         "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",

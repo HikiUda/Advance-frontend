@@ -2,6 +2,8 @@ import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
+import { List, ListRowProps, WindowScroller } from 'react-virtualized';
+import { PAGE_ID } from 'widgets/Page/Page';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -26,14 +28,37 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     const { className, articles, isLoading, view = ArticleView.SMALL, target } = props;
     const { t } = useTranslation();
 
-    const renderArticle = (article: Article) => (
-        <ArticleListItem
-            key={article.id}
-            article={article}
-            view={view}
-            target={target}
-        />
-    );
+    const isBig = view === ArticleView.BIG;
+
+    const itemsPerRow = isBig ? 1 : 3;
+    const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
+
+    const rowRender = ({ index, key, style }: ListRowProps) => {
+        const items = [];
+        const fromIndex = index * itemsPerRow;
+        const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+        for (let i = fromIndex; i < toIndex; i += 1) {
+            items.push(
+                <ArticleListItem
+                    article={articles[i]}
+                    view={view}
+                    target={target}
+                    key={articles[i].id}
+                    className={cls.card}
+                />,
+            );
+        }
+        return (
+            <div
+                key={key}
+                style={style}
+                className={cls.row}
+            >
+                {items}
+            </div>
+        );
+    };
 
     if (!isLoading && !articles.length) {
         return (
@@ -47,9 +72,27 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles.length > 0 ? articles.map(renderArticle) : null}
-            {isLoading && getSkeletons(view)}
-        </div>
+        <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
+            {({ height, width, registerChild, scrollTop, onChildScroll, isScrolling }) => (
+                <div
+                    ref={registerChild}
+                    className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                >
+                    <List
+                        height={height ?? 500}
+                        rowCount={rowCount}
+                        rowHeight={isBig ? 500 : 330}
+                        rowRenderer={rowRender}
+                        width={width ? width - 80 : 500}
+                        autoHeight
+                        onScroll={onChildScroll}
+                        isScrolling={isScrolling}
+                        scrollTop={scrollTop}
+                    />
+
+                    {isLoading && getSkeletons(view)}
+                </div>
+            )}
+        </WindowScroller>
     );
 };

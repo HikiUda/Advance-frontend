@@ -14,7 +14,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'react-hooks'],
+    plugins: ['react', '@typescript-eslint', 'react-hooks', 'fsd-layer-import'],
 
     rules: {
         'react/jsx-indent': [2, 4],
@@ -45,12 +45,28 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'operator-linebreak': 'warn',
         'no-undef': 'off',
+        'fsd-layer-import/path-checker': 'error',
         'max-len': ['error', { ignoreComments: true, code: 200 }],
         'i18next/no-literal-string': [
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['target', 'path', 'align', 'size', 'data-testid', 'name', 'to', 'fallback'],
+                ignoreAttribute: [
+                    'as',
+                    'role',
+                    'target',
+                    'path',
+                    'align',
+                    'size',
+                    'data-testid',
+                    'name',
+                    'to',
+                    'fallback',
+                    'direction',
+                    'align',
+                    'justify',
+                    'gap',
+                ],
             },
         ],
     },

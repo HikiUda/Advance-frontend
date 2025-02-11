@@ -16,6 +16,8 @@ interface PageProps {
     onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = 'PAGE_ID';
+
 export const Page: FC<PageProps> = (props) => {
     const { className, children, onScrollEnd } = props;
     const dispatch = useAppDispatch();
@@ -40,10 +42,11 @@ export const Page: FC<PageProps> = (props) => {
     }, 500);
 
     return (
-        <section
+        <main
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
             onScroll={onScroll}
+            id={PAGE_ID}
         >
             {children}
             {onScrollEnd ? (
@@ -52,6 +55,6 @@ export const Page: FC<PageProps> = (props) => {
                     ref={triggerRef}
                 />
             ) : null}
-        </section>
+        </main>
     );
 };

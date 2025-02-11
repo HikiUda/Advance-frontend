@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import { FC, useCallback, useState } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -11,6 +12,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { DropDown } from 'shared/ui/DropDown/DropDown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -48,14 +51,20 @@ export const Navbar: FC<NavbarProps> = (props) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <div className={cls.links}>
-                    <Button
-                        theme={ThemeButton.CLEAR_INVERTED}
-                        onClick={onLogout}
-                    >
-                        {t('Выйти')}
-                    </Button>
-                </div>
+                <DropDown
+                    className={cls.dropdown}
+                    direction="bottom left"
+                    items={[
+                        { content: t('Выйти'), onClick: onLogout },
+                        { content: t('Профиль'), href: RoutePath.profile + authData.id },
+                    ]}
+                    trigger={
+                        <Avatar
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    }
+                />
             </header>
         );
     }

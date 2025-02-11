@@ -7,3 +7,14 @@
 .BIG {
     flex-flow: column nowrap;
 }
+
+.SMALL {
+    .card {
+        display: inline-flex;
+    }
+
+    .row {
+        display: flex;
+        gap: 30px;
+    }
+}

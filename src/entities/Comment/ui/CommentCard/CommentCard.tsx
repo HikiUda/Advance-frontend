@@ -6,6 +6,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { VStack } from 'shared/ui/Stack';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
 
@@ -46,7 +47,10 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
     }
 
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
+        <VStack
+            max
+            className={classNames(cls.CommentCard, {}, [className])}
+        >
             <AppLink
                 to={`${RoutePath.profile}${comment?.user.id}`}
                 className={cls.header}
@@ -63,6 +67,6 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
                 className={cls.text}
                 title={comment?.text}
             />
-        </div>
+        </VStack>
     );
 };

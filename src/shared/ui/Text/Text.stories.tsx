@@ -43,6 +43,14 @@ export const SizeMTitleAndText: Story = {
         size: 'size_m',
     },
 };
+export const SizeSTitleAndText: Story = {
+    args: {
+        title: 'Title',
+        text: 'text text text',
+        theme: TextTheme.ERROR,
+        size: 'size_s',
+    },
+};
 export const SizeLTitleAndText: Story = {
     args: {
         title: 'Title',

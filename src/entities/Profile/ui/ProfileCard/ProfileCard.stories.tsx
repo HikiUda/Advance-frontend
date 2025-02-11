@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
+import { ValidateProfileError } from '../../model/types/profile';
 import { ProfileCard } from './ProfileCard';
 
 const meta: Meta<typeof ProfileCard> = {

@@ -7,14 +7,14 @@ import { useSelector } from 'react-redux';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { ArticleSortSelector, ArticleSortFeald, ArticleType } from 'entities/Article/';
-import { getArticlePageOrder } from 'pages/ArticlePage/model/selectors/getArticlePageOrder/getArticlePageOrder';
-
 import { SortOrder } from 'shared/types/sort';
-import { getArticlePageSort } from 'pages/ArticlePage/model/selectors/getArticlePageSort/getArticlePageSort';
-import { getArticlePageSearch } from 'pages/ArticlePage/model/selectors/getArticlePageSearch/getArticlePageSearch';
-import { fetchArticlesList } from 'pages/ArticlePage/model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { getArticlePageType } from 'pages/ArticlePage/model/selectors/getArticlePageType/getArticlePageType';
+import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
+
+import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort';
+import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { getArticlePageType } from '../../model/selectors/getArticlePageType/getArticlePageType';
 import { articlesPageActions } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePageFilter.module.scss';
 import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';

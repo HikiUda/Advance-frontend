@@ -2,18 +2,20 @@ import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } f
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsScheme } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter/';
-import { ProfileScheme } from 'entities/Profile';
 import { UserScheme } from 'entities/User';
 import { AddCommentFormScheme } from 'features/addCommentForm';
 import { LoginScheme } from 'features/AuthByUsername';
+import { ProfileScheme } from 'features/EditableProfileCard';
 import { ArticleDetailsPageScheme } from 'pages/ArticleDetailsPage';
 import { ArticlePageScheme } from 'pages/ArticlePage';
+import { rtkApi } from 'shared/api/rtkApi';
 import { ScrollSaveScheme } from 'widgets/ScrollSave';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserScheme;
     scrollSave: ScrollSaveScheme;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     loginForm?: LoginScheme;
     profile?: ProfileScheme;
     articleDetails?: ArticleDetailsScheme;

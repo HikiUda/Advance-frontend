@@ -11,7 +11,7 @@ const AppRouter = () => {
             <Route
                 key={route.path}
                 path={route.path}
-                element={route.authOnly ? <RequireAuth>{elm}</RequireAuth> : elm}
+                element={route.authOnly ? <RequireAuth roles={route.roles}>{elm}</RequireAuth> : elm}
             />
         );
     }, []);

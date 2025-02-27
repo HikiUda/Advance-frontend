@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
+import AvatarImg from '@/shared/assets/tests/illusion-cernival.png';
 
 import { Article, ArticleBlockType, ArticleType, ArticleView } from '../../model/types/article';
 import { ArticleList } from './ArticleList';

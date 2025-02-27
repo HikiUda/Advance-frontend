@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Card } from 'shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import cls from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/types/article';
 

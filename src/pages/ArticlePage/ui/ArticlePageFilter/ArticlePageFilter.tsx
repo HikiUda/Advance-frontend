@@ -1,14 +1,14 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticleTypeTabs, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { ArticleSortSelector, ArticleSortFeald, ArticleType } from 'entities/Article/';
-import { SortOrder } from 'shared/types/sort';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ArticleView, ArticleSortFeald } from '@/entities/Article';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
+import type { ArticleType } from '@/entities/Article';
+import { SortOrder } from '@/shared/types/sort';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 
 import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort';
@@ -18,6 +18,9 @@ import { getArticlePageType } from '../../model/selectors/getArticlePageType/get
 import { articlesPageActions } from '../../model/slices/articlePageSlice';
 import cls from './ArticlePageFilter.module.scss';
 import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 
 interface ArticlePageFilterProps {
     className?: string;
@@ -87,23 +90,12 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = (props) => {
                     order={order}
                     sort={sort}
                 />
-                <ArticleViewSelector
-                    view={view}
-                    onViewClick={onChangeView}
-                />
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card className={cls.search}>
-                <Input
-                    value={search}
-                    onChange={onChangeSearch}
-                    placeholder={t('Поиск')}
-                />
+                <Input value={search} onChange={onChangeSearch} placeholder={t('Поиск')} />
             </Card>
-            <ArticleTypeTabs
-                className={cls.tabs}
-                value={type}
-                onChangeType={onChangeType}
-            />
+            <ArticleTypeTabs className={cls.tabs} value={type} onChangeType={onChangeType} />
         </div>
     );
 };

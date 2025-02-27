@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { http, HttpResponse } from 'msw';
 
-import { ArticleType } from 'entities/Article';
-import { Article, ArticleBlockType } from 'entities/Article/model/types/article';
-import { f } from 'msw/lib/core/HttpResponse-5Sn2vNaJ';
+import { ArticleType, Article, ArticleBlockType } from '@/entities/Article';
+
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 
 const article: Article = {
@@ -48,7 +47,11 @@ export const Primary: Story = {
                     ({ request }) => {
                         const url = new URL(request.url);
                         url.searchParams.set('_limit', '3');
-                        return HttpResponse.json([article, { ...article, id: '2' }, { ...article, id: '3' }]);
+                        return HttpResponse.json([
+                            article,
+                            { ...article, id: '2' },
+                            { ...article, id: '3' },
+                        ]);
                     },
                     // eslint-disable-next-line function-paren-newline
                 ),

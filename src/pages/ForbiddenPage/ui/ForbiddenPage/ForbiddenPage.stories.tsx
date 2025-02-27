@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ForbiddenPage from './ForbiddenPage';
 
 const meta: Meta<typeof ForbiddenPage> = {
-    title: 'shared/ForbiddenPage',
+    title: 'page/ForbiddenPage',
     component: ForbiddenPage,
 
     tags: ['autodocs'],

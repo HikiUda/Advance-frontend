@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Article, ArticleView } from 'entities/Article';
-import { StoreProviderDecorator } from 'shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
 import { EntityId } from '@reduxjs/toolkit';
+import { Article, ArticleView } from '@/entities/Article';
+import { StoreProviderDecorator } from '@/shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
 import ArticlePage from './ArticlePage';
 
 const meta: Meta<typeof ArticlePage> = {

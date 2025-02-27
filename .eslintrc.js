@@ -14,7 +14,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'react-hooks', 'fsd-layer-import'],
+    plugins: ['react', '@typescript-eslint', 'react-hooks', 'fsd-layer-import', 'unused-imports'],
 
     rules: {
         'react/jsx-indent': [2, 4],
@@ -37,15 +37,31 @@ module.exports = {
         'implicit-arrow-linebreak': 'warn',
         'object-curly-newline': 'off',
         'wrap-iife': 'warn',
+        'unused-imports/no-unused-imports': 'error',
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'react/no-array-index-key': 'off',
+        'function-paren-newline': 'off',
         'operator-linebreak': 'warn',
         'no-undef': 'off',
-        'fsd-layer-import/path-checker': 'error',
+        'fsd-layer-import/path-checker': ['error', { alias: '@' }],
+        'fsd-layer-import/public-api-import': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.ts', '**/*.stories.tsx', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'fsd-layer-import/layer-import': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 200 }],
         'i18next/no-literal-string': [
             'error',
@@ -66,6 +82,7 @@ module.exports = {
                     'align',
                     'justify',
                     'gap',
+                    'border',
                 ],
             },
         ],

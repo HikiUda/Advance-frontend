@@ -1,12 +1,12 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from 'entities/Article';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getRouteArticle, getRouteArticleDetailsEdit } from '@/shared/const/router';
+import { Button, ThemeButton } from '@/shared/ui/Button';
+import { getArticleDetailsData } from '@/entities/Article';
+import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCanEditArticle';
 
 interface ArticleDetailsPageHeaderProps {
@@ -21,29 +21,19 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (prop
     const article = useSelector(getArticleDetailsData);
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticle());
     }, [navigate]);
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}/edit`);
+        navigate(getRouteArticleDetailsEdit(article?.id || 0));
     }, [navigate, article]);
 
     return (
-        <HStack
-            max
-            justify="between"
-            className={classNames('', {}, [className])}
-        >
-            <Button
-                theme={ThemeButton.OUTLINE}
-                onClick={onBackToList}
-            >
+        <HStack max justify="between" className={classNames('', {}, [className])}>
+            <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
             {canEdit && (
-                <Button
-                    theme={ThemeButton.OUTLINE}
-                    onClick={onEditArticle}
-                >
+                <Button theme={ThemeButton.OUTLINE} onClick={onEditArticle}>
                     {t('Редактировать')}
                 </Button>
             )}

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
+import AvatarImg from '@/shared/assets/tests/illusion-cernival.png';
 import { CommentList } from './CommentList';
 
 const meta: Meta<typeof CommentList> = {

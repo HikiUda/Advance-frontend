@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { AppLink } from '@/shared/ui/AppLink';
+import { getRouteProfile } from '@/shared/const/router';
+import { VStack } from '@/shared/ui/Stack';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
 
@@ -24,21 +24,10 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
         return (
             <div className={classNames(cls.CommentCard, {}, [className])}>
                 <div className={cls.header}>
-                    <Skeleton
-                        width={30}
-                        height={30}
-                        border="50%"
-                    />
-                    <Skeleton
-                        width={100}
-                        height={16}
-                    />
+                    <Skeleton width={30} height={30} border="50%" />
+                    <Skeleton width={100} height={16} />
                 </div>
-                <Skeleton
-                    className={cls.text}
-                    width="100%"
-                    height={50}
-                />
+                <Skeleton className={cls.text} width="100%" height={50} />
             </div>
         );
     }
@@ -47,26 +36,12 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
     }
 
     return (
-        <VStack
-            max
-            className={classNames(cls.CommentCard, {}, [className])}
-        >
-            <AppLink
-                to={`${RoutePath.profile}${comment?.user.id}`}
-                className={cls.header}
-            >
-                {comment?.user?.avatar ? (
-                    <Avatar
-                        src={comment.user.avatar}
-                        size={30}
-                    />
-                ) : null}
+        <VStack max className={classNames(cls.CommentCard, {}, [className])}>
+            <AppLink to={getRouteProfile(comment?.user.id)} className={cls.header}>
+                {comment?.user?.avatar ? <Avatar src={comment.user.avatar} size={30} /> : null}
                 <Text title={comment?.user?.username} />
             </AppLink>
-            <Text
-                className={cls.text}
-                title={comment?.text}
-            />
+            <Text className={cls.text} title={comment?.text} />
         </VStack>
     );
 };

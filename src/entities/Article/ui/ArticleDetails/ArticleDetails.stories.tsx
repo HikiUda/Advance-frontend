@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
-import { StoreProviderDecorator } from 'shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
+import AvatarImg from '@/shared/assets/tests/illusion-cernival.png';
+import { StoreProviderDecorator } from '@/shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
 import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { StoreProviderDecorator } from 'shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
-import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { StoreProviderDecorator } from '@/shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
+import AvatarImg from '@/shared/assets/tests/illusion-cernival.png';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import ProfilePage from './ProfilePage';
 
 const meta: Meta<typeof ProfilePage> = {

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
-
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { StoreProviderDecorator } from 'shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { EntityId } from '@reduxjs/toolkit';
+import AvatarImg from '@/shared/assets/tests/illusion-cernival.png';
+
+import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
+import { StoreProviderDecorator } from '@/shared/config/storybook/StoreProviderDecorator/StoreProviderDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta: Meta<typeof ArticleDetailsPage> = {

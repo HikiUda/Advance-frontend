@@ -1,11 +1,11 @@
-import { App } from 'app/App';
 import { createRoot } from 'react-dom/client';
-import { StoreProvider } from 'app/providers/StoreProvider';
 import { BrowserRouter } from 'react-router-dom';
-import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+import { App } from '@/app/App';
+import { StoreProvider } from '@/app/providers/StoreProvider';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { ThemeProvider } from './shared/lib/theme';
-import 'shared/config/i18n/i18n';
-import 'app/styles/index.scss';
+import '@/shared/config/i18n/i18n';
+import '@/app/styles/index.scss';
 
 const containter = document.getElementById('root');
 if (!containter) {

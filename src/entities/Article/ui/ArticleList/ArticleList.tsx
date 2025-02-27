@@ -1,9 +1,10 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
-import { PAGE_ID } from 'widgets/Page/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+// eslint-disable-next-line fsd-layer-import/layer-import
+import { PAGE_ID } from '@/widgets/Page';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -18,15 +19,19 @@ interface ArticleListProps {
     virtualized?: boolean;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3).fill(0).map((item, index) => (
-    <ArticleListItemSkeleton
-        key={index}
-        view={view}
-    />
-));
+const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
+    .fill(0)
+    .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
-    const { className, articles, isLoading, view = ArticleView.SMALL, target, virtualized = true } = props;
+    const {
+        className,
+        articles,
+        isLoading,
+        view = ArticleView.SMALL,
+        target,
+        virtualized = true,
+    } = props;
     const { t } = useTranslation();
 
     const isBig = view === ArticleView.BIG;
@@ -51,11 +56,7 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
             );
         }
         return (
-            <div
-                key={key}
-                style={style}
-                className={cls.row}
-            >
+            <div key={key} style={style} className={cls.row}>
                 {items}
             </div>
         );
@@ -64,10 +65,7 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                <Text
-                    size="size_l"
-                    title={t('Статья не найдена')}
-                />
+                <Text size="size_l" title={t('Статья не найдена')} />
             </div>
         );
     }

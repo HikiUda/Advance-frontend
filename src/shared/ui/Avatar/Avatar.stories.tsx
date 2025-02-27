@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import AvatarImg from 'shared/assets/tests/illusion-cernival.png';
+import AvatarImg from '@/shared/assets/tests/illusion-cernival.png';
 import { Avatar } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {

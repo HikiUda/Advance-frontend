@@ -22,7 +22,7 @@ const preview: Preview = {
     loaders: [mswLoader],
     decorators: [
         StyleDecorator,
-        ThemeDecorator(Theme.LIGHT),
+        ThemeDecorator(),
         StoreProviderDecorator({}),
         MemoryRouterDecorator(),
     ],

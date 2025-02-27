@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleSortFeald } from 'entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleSortFeald } from '@/entities/Article';
 import { getArticlePageSort } from './getArticlePageSort';
 
 describe('getArticlePageSort', () => {

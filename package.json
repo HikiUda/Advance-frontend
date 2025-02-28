@@ -24,7 +24,7 @@
         "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
         "storybook": "storybook dev -p 6006 -c ./config/.storybook",
         "storybook:build": "storybook build -c ./config/.storybook",
-        "prepare": "husky"
+        "prepare": "husky && husky install"
     },
     "lint-staged": {
         "**/*.{ts,tsx}": "eslint"
@@ -87,7 +87,7 @@
         "file-loader": "^6.2.0",
         "fork-ts-checker-webpack-plugin": "^7.2.13",
         "html-webpack-plugin": "^5.5.0",
-        "husky": "^7.0.0",
+        "husky": "^8.0.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.5.1",
         "jest-html-reporters": "^3.0.10",

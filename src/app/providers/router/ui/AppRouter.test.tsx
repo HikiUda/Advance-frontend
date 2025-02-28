@@ -60,7 +60,7 @@ describe('app/router/AppRouter', () => {
             },
         });
 
-        const page = await screen.findByTestId('AdminPanelPagee');
+        const page = await screen.findByTestId('AdminPanelPage');
         expect(page).toBeInTheDocument();
     });
 });

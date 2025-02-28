@@ -28,7 +28,7 @@ export const AvatarDropDown: FC<AvatarDropDownProps> = (props) => {
         return null;
     }
 
-    const avatar = <Avatar size={30} src={authData.avatar} />;
+    const avatar = <Avatar fallbackInverted size={30} src={authData.avatar} />;
 
     return (
         <DropDown

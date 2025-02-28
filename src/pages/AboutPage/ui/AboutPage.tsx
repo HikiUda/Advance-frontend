@@ -11,7 +11,11 @@ interface AboutPageProps {
 const AboutPage: FC<AboutPageProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation('about');
-    return <Page className="">{t('О нас')}</Page>;
+    return (
+        <Page className="" data-testid="AboutPage">
+            {t('О нас')}
+        </Page>
+    );
 };
 
 export default AboutPage;

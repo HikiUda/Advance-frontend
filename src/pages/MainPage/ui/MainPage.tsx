@@ -13,7 +13,7 @@ const MainPage: FC<MainPageProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation('main');
     return (
-        <Page className="">
+        <Page className="" data-testid="MainPage">
             {t('Главная')}
             <Counter />
         </Page>

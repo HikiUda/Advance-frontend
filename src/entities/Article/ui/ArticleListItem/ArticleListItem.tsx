@@ -18,6 +18,8 @@ import {
     ArticleView,
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
@@ -54,7 +56,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
                     <Text text={article.title} className={cls.title} />
                     {types}
 
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage
+                        fallback={<Skeleton width="100%" height="250px" />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     {textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
@@ -77,7 +84,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
         >
             <Card>
                 <div className={cls.imageWrapper}>
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage
+                        fallback={<Skeleton width="200px" height="200px" />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>
                 <div className={cls.infoWrapper}>

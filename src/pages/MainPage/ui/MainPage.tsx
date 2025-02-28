@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 import { Counter } from '@/entities/Counter';
@@ -12,9 +12,7 @@ interface MainPageProps {
 const MainPage: FC<MainPageProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation('main');
-    const l = useCallback(() => {
-        const b = className;
-    }, []);
+
     return (
         <Page className="" data-testid="MainPage">
             {t('Главная')}

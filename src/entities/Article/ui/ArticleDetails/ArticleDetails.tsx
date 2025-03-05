@@ -47,26 +47,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
             case ArticleBlockType.CODE:
-                return (
-                    <ArticleCodeBlockComponent
-                        key={block.id}
-                        block={block}
-                    />
-                );
+                return <ArticleCodeBlockComponent key={block.id} block={block} />;
             case ArticleBlockType.TEXT:
-                return (
-                    <ArticleTextBlockComponent
-                        key={block.id}
-                        block={block}
-                    />
-                );
+                return <ArticleTextBlockComponent key={block.id} block={block} />;
             case ArticleBlockType.IMAGE:
-                return (
-                    <ArticleImageBlockComponent
-                        key={block.id}
-                        block={block}
-                    />
-                );
+                return <ArticleImageBlockComponent key={block.id} block={block} />;
             default:
                 return null;
         }
@@ -79,55 +64,22 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-                <Skeleton
-                    className={cls.avatar}
-                    width={200}
-                    height={200}
-                    border="50%"
-                />
-                <Skeleton
-                    className={cls.title}
-                    width={300}
-                    height={32}
-                />
-                <Skeleton
-                    className={cls.skeleton}
-                    width={600}
-                    height={24}
-                />
-                <Skeleton
-                    className={cls.skeleton}
-                    width="100%"
-                    height={200}
-                />
-                <Skeleton
-                    className={cls.skeleton}
-                    width="100%"
-                    height={200}
-                />
+                <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+                <Skeleton className={cls.title} width={300} height={32} />
+                <Skeleton className={cls.skeleton} width={600} height={24} />
+                <Skeleton className={cls.skeleton} width="100%" height={200} />
+                <Skeleton className={cls.skeleton} width="100%" height={200} />
             </>
         );
     } else if (error) {
-        content = (
-            <Text
-                align="center"
-                text={t('Статья не найдена')}
-            />
-        );
+        content = <Text align="center" text={t('Статья не найдена')} />;
     } else {
         content = (
             <>
-                <HStack
-                    justify="center"
-                    className={cls.avatarWrapper}
-                >
-                    <Avatar
-                        size={200}
-                        src={article?.img}
-                        className={cls.avatar}
-                    />
+                <HStack justify="center" className={cls.avatarWrapper}>
+                    <Avatar size={200} src={article?.img} className={cls.avatar} />
                 </HStack>
-                <VStack gap="4">
+                <VStack gap="4" data-testid="ArticleDetails.Info">
                     <Text
                         className={cls.title}
                         title={article?.title}
@@ -150,14 +102,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     }
 
     return (
-        <DynamicModuelLoader
-            reducers={reducers}
-            removeAfterUnmount
-        >
-            <VStack
-                gap="16"
-                className={classNames(cls.ArticleDetails, {}, [className])}
-            >
+        <DynamicModuelLoader reducers={reducers} removeAfterUnmount>
+            <VStack gap="16" className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </VStack>
         </DynamicModuelLoader>

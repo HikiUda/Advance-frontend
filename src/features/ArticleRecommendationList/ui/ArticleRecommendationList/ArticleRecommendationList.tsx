@@ -17,13 +17,9 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
         return null;
     }
     return (
-        <VStack className={className}>
+        <VStack data-testid="ArticleRecommendationList" className={className}>
             <Text title={t('Рекомендуем')} />
-            <ArticleList
-                articles={articles}
-                target="_blank"
-                virtualized
-            />
+            <ArticleList articles={articles} target="_blank" virtualized />
         </VStack>
     );
 });

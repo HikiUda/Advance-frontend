@@ -19,9 +19,10 @@ interface ArticleListProps {
     virtualized?: boolean;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
     const {
@@ -76,6 +77,7 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
                 <div
                     // @ts-ignore
                     ref={registerChild}
+                    data-testid="ArticleList"
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                 >
                     {virtualized ? (

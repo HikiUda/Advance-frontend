@@ -7,7 +7,10 @@ import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuelLoader, ReducersList } from '@/shared/lib/components/DynamicModuelLoader';
 import { HStack } from '@/shared/ui/Stack';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slices/addCommentFormSlice';
 import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormText/getAddCommentFormText';
 import cls from './AddCommentForm.module.scss';
 import { getAddCommentFormError } from '../../model/selectors/getAddCommentFormError/getAddCommentFormError';
@@ -43,15 +46,19 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
     return (
         <DynamicModuelLoader reducers={reducers}>
             <HStack
+                data-testid="AddCommentForm"
                 justify="between"
                 className={classNames(cls.AddCommentForm, {}, [className])}
             >
                 <Input
+                    data-testid="AddCommentForm.Input"
                     className={cls.input}
                     onChange={onChageCommentText}
                     placeholder={t('Добавить комментарий')}
                 />
-                <Button onClick={onSendHandler}>{t('Отправить')}</Button>
+                <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
+                    {t('Отправить')}
+                </Button>
             </HStack>
         </DynamicModuelLoader>
     );

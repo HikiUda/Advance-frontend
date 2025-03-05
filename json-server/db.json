@@ -567,6 +567,11 @@
             "userId": "1",
             "text": "",
             "id": "3AuLOWN"
+        },
+        {
+            "userId": "4",
+            "text": "text",
+            "id": "IkyP2Ub"
         }
     ],
     "users": [
@@ -589,6 +594,13 @@
             "username": "manager",
             "password": "123",
             "roles": ["MANAGER"],
+            "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+        },
+        {
+            "id": "4",
+            "username": "testUser",
+            "password": "123",
+            "roles": ["USER"],
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     ],
@@ -613,6 +625,17 @@
             "country": "Russia",
             "city": "Ircutsk",
             "username": "user",
+            "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+        },
+        {
+            "id": "4",
+            "first": "testUser",
+            "lastname": "user",
+            "age": 33,
+            "currency": "RUB",
+            "country": "Russia",
+            "city": "Ircutsk",
+            "username": "testUser",
             "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
         }
     ],

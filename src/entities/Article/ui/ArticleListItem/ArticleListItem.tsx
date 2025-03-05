@@ -45,7 +45,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleTextBlock;
         return (
-            <div className={classNames('', {}, [className, cls[view]])}>
+            <div
+                data-testid="ArticleListItem"
+                className={classNames('', {}, [className, cls[view]])}
+            >
                 <Card>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -78,6 +81,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
     return (
         <Link
+            data-testid="ArticleListItem"
             target={target}
             to={getRouteArtilceDetails(article.id)}
             className={classNames('', {}, [className, cls[view]])}

@@ -16,6 +16,7 @@ const MainPage: FC<MainPageProps> = (props) => {
     return (
         <Page className="" data-testid="MainPage">
             {t('Главная')}
+            123456
             <Counter />
         </Page>
     );

@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Button, ThemeButton } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Button, ThemeButton } from '@/shared/ui/deprecated/Button';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 
 import { DynamicModuelLoader, ReducersList } from '@/shared/lib/components/DynamicModuelLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -60,18 +60,10 @@ const LoginForm = memo((props: LoginFormProps) => {
     }, [dispatch, username, password, onSuccess]);
 
     return (
-        <DynamicModuelLoader
-            removeAfterUnmount
-            reducers={initialReducers}
-        >
+        <DynamicModuelLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
-                {error && (
-                    <Text
-                        theme={TextTheme.ERROR}
-                        text={error}
-                    />
-                )}
+                {error && <Text theme={TextTheme.ERROR} text={error} />}
                 <Input
                     autoFocus
                     placeholder={t('Введите email')}

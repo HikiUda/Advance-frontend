@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';
 
@@ -14,17 +14,8 @@ export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = (
 
     return (
         <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-            <img
-                src={block.src}
-                alt={block.title}
-                className={cls.img}
-            />
-            {block.title && (
-                <Text
-                    text={block.title}
-                    align="center"
-                />
-            )}
+            <img src={block.src} alt={block.title} className={cls.img} />
+            {block.title && <Text text={block.title} align="center" />}
         </div>
     );
 };

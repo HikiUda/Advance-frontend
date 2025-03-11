@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { FC } from 'react';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/deprecated/Button';
 import { useCounterActions } from '../model/slices/counterSlice';
 import { useCouterValue } from '../model/selectors/getCounterValue/getCounterValue';
 

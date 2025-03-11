@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ProfileCard } from '@/entities/Profile';
 import { DynamicModuelLoader, ReducersList } from '@/shared/lib/components/DynamicModuelLoader';
@@ -106,14 +106,11 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     );
 
     return (
-        <DynamicModuelLoader
-            reducers={reducers}
-            removeAfterUnmount
-        >
+        <DynamicModuelLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
-                {validateErrors?.length
-                    && validateErrors.map((err) => (
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
                         <Text
                             theme={TextTheme.ERROR}
                             key={err}

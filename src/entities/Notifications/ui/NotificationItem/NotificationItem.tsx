@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, CardTheme } from '@/shared/ui/Card';
-import { Text } from '@/shared/ui/Text';
+import { Card, CardTheme } from '@/shared/ui/deprecated/Card';
+import { Text } from '@/shared/ui/deprecated/Text';
 import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';
 
@@ -18,21 +18,13 @@ export const NotificationItem: FC<NotificationItemProps> = (props) => {
             theme={CardTheme.OUTLINED}
             className={classNames(cls.NotificationItem, {}, [className])}
         >
-            <Text
-                title={item.title}
-                text={item.description}
-            />
+            <Text title={item.title} text={item.description} />
         </Card>
     );
 
     if (item.href) {
         return (
-            <a
-                className={cls.link}
-                rel="noreferrer"
-                target="_blank"
-                href={item.href}
-            >
+            <a className={cls.link} rel="noreferrer" target="_blank" href={item.href}>
                 {content}
             </a>
         );

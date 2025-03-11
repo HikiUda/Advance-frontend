@@ -11,6 +11,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useTrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/test';
+import { toggleFeatures } from '@/shared/lib/featureFlags';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -48,7 +49,15 @@ export const Page: FC<PageProps> = (props) => {
     return (
         <main
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.PageRedesigned,
+                    off: () => cls.Page,
+                }),
+                {},
+                [className],
+            )}
             onScroll={onScroll}
             id={PAGE_ID}
             // eslint-disable-next-line react/destructuring-assignment

@@ -2,7 +2,7 @@ import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 // eslint-disable-next-line fsd-layer-import/layer-import
 import { PAGE_ID } from '@/widgets/Page';
 import cls from './ArticleList.module.scss';

@@ -47,6 +47,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'function-paren-newline': 'off',
         'operator-linebreak': 'warn',
+        'react/jsx-wrap-multilines': 'off',
         'no-undef': 'off',
         'fsd-layer-import/path-checker': ['error', { alias: '@' }],
         'fsd-layer-import/public-api-import': [

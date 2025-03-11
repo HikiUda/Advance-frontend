@@ -7,6 +7,8 @@ import { getUserInited, initUserData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppRouter } from './providers/router';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeatures } from '@/shared/lib/featureFlags';
+import { MainLayout } from '@/shared/layout/MainLayout';
 
 export const App = () => {
     const dispatch = useAppDispatch();
@@ -19,15 +21,33 @@ export const App = () => {
     if (!inited) {
         return <PageLoader />;
     }
+
     return (
-        <div className={classNames('app', {}, [])}>
-            <Suspense fallback="Loading...">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <div className={classNames('app_redesigned', {}, [])}>
+                    <Suspense fallback="Loading...">
+                        <MainLayout
+                            sidebar={<Sidebar />}
+                            content={inited && <AppRouter />}
+                            header={<Navbar />}
+                            toolbar={<div>adsfaaf</div>}
+                        />
+                    </Suspense>
                 </div>
-            </Suspense>
-        </div>
+            }
+            off={
+                <div className={classNames('app', {}, [])}>
+                    <Suspense fallback="Loading...">
+                        <Navbar />
+                        <div className="content-page">
+                            <Sidebar />
+                            {inited && <AppRouter />}
+                        </div>
+                    </Suspense>
+                </div>
+            }
+        />
     );
 };
